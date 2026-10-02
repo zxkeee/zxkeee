@@ -4,14 +4,6 @@
 
 <sub>Kyiv-Mohyla Academy · Kyiv</sub>
 
-<br />
-
-A student who got hooked on backend and security.<br />
-Most of my time goes into Go — proxies, databases, and how APIs break.<br />
-Still learning; I like code that is simple, tested and honest about what it does.
-
-<br />
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/stack-light.svg" />
