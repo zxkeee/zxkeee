@@ -25,14 +25,22 @@ NAMES = {
 }
 
 THEMES = {
-    "dark": {"icons": "dark", "panel": "#161b22", "border": "#30363d",
-             "label": "#8b949e", "rule": "#21262d"},
-    "light": {"icons": "light", "panel": "#f6f8fa", "border": "#d0d7de",
-              "label": "#57606a", "rule": "#eaeef2"},
+    "dark": {"icons": "dark", "label": "#8b949e", "name": "#6e7681", "rule": "#30363d"},
+    "light": {"icons": "light", "label": "#57606a", "name": "#6e7781", "rule": "#d8dee4"},
 }
 
-ICON, GAP, ROW_GAP, PAD_X, PAD_Y, LABEL_W = 40, 10, 22, 28, 26, 170
+# Drawn at 840 wide and scaled by the README to fill its column.
+WIDTH, LABEL_W, ICON, NAME_GAP, ROW_GAP, PAD_Y = 840, 170, 40, 18, 30, 8
 FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+STYLE = """
+  .r { stroke-dasharray: 840; animation: draw 1.1s cubic-bezier(.4,0,.2,1) backwards; }
+  @keyframes draw { from { stroke-dashoffset: 840; } }
+  .l { animation: fade .6s ease-out backwards; }
+  .i { animation: rise .6s cubic-bezier(.2,.8,.2,1) backwards; }
+  @keyframes fade { from { opacity: 0; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .r, .l, .i { animation: none; } }
+"""
 
 
 def fetch_icon(name: str, theme: str) -> str:
@@ -49,29 +57,35 @@ def fetch_icon(name: str, theme: str) -> str:
 def build(theme_name: str) -> str:
     t = THEMES[theme_name]
     widest = max(len(icons) for _, icons in GROUPS)
-    width = PAD_X * 2 + LABEL_W + widest * ICON + (widest - 1) * GAP
-    height = PAD_Y * 2 + len(GROUPS) * ICON + (len(GROUPS) - 1) * ROW_GAP
+    slot = (WIDTH - LABEL_W) / widest
+    row_h = ICON + NAME_GAP
+    height = PAD_Y * 2 + 6 + len(GROUPS) * row_h + (len(GROUPS) - 1) * ROW_GAP
 
     parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'viewBox="0 0 {width} {height}" fill="none" role="img" aria-label="Tech stack">',
-        f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="14" '
-        f'fill="{t["panel"]}" stroke="{t["border"]}"/>',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
+        f'viewBox="0 0 {WIDTH} {height}" fill="none" role="img" aria-label="Tech stack">',
+        f"<style>{STYLE}</style>",
     ]
     for row, (label, icons) in enumerate(GROUPS):
-        y = PAD_Y + row * (ICON + ROW_GAP)
+        y = PAD_Y + row * (row_h + ROW_GAP)
+        delay = row * 0.15
         if row:
             rule_y = y - ROW_GAP / 2
-            parts.append(f'<line x1="{PAD_X}" y1="{rule_y}" x2="{width - PAD_X}" y2="{rule_y}" '
-                         f'stroke="{t["rule"]}"/>')
-        parts.append(f'<text x="{PAD_X}" y="{y + ICON / 2 + 4}" fill="{t["label"]}" '
-                     f'font-family="{FONT}" font-size="11.5" font-weight="600" '
-                     f'letter-spacing="1.6">{label}</text>')
+            parts.append(f'<line class="r" style="animation-delay:{delay:.2f}s" x1="0" y1="{rule_y}" '
+                         f'x2="{WIDTH}" y2="{rule_y}" stroke="{t["rule"]}"/>')
+        parts.append(f'<text class="l" style="animation-delay:{delay:.2f}s" x="0" y="{y + ICON / 2 + 4}" '
+                     f'fill="{t["label"]}" font-family="{FONT}" font-size="11.5" font-weight="600" '
+                     f'letter-spacing="1.8">{label}</text>')
         for col, name in enumerate(icons):
-            x = PAD_X + LABEL_W + col * (ICON + GAP)
+            cx = LABEL_W + slot * col + slot / 2
             icon = fetch_icon(name, t["icons"])
             icon = icon.replace('width="256" height="256"', f'width="{ICON}" height="{ICON}"', 1)
-            parts.append(f'<g transform="translate({x} {y})"><title>{NAMES[name]}</title>{icon}</g>')
+            parts.append(
+                f'<g class="i" style="animation-delay:{delay + 0.2 + col * 0.06:.2f}s">'
+                f'<title>{NAMES[name]}</title>'
+                f'<g transform="translate({cx - ICON / 2:.1f} {y})">{icon}</g>'
+                f'<text x="{cx:.1f}" y="{y + row_h + 2}" text-anchor="middle" fill="{t["name"]}" '
+                f'font-family="{FONT}" font-size="11">{NAMES[name]}</text></g>')
     parts.append("</svg>")
     return "\n".join(parts)
 
