@@ -25,8 +25,8 @@ NAMES = {
 }
 
 THEMES = {
-    "dark": {"icons": "dark", "label": "#8b949e", "name": "#6e7681", "rule": "#30363d"},
-    "light": {"icons": "light", "label": "#57606a", "name": "#6e7781", "rule": "#d8dee4"},
+    "dark": {"icons": "dark", "label": "#8b949e", "name": "#6e7681", "rule": "#30363d", "glint": "#58a6ff"},
+    "light": {"icons": "light", "label": "#57606a", "name": "#6e7781", "rule": "#d8dee4", "glint": "#0969da"},
 }
 
 # Drawn at 840 wide and scaled by the README to fill its column.
@@ -39,7 +39,11 @@ STYLE = """
   .i { animation: rise .6s cubic-bezier(.2,.8,.2,1) backwards; }
   @keyframes fade { from { opacity: 0; } }
   @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
-  @media (prefers-reduced-motion: reduce) { .r, .l, .i { animation: none; } }
+  .g { stroke-dasharray: 140 2000; stroke-dashoffset: 140; stroke-linecap: round;
+       animation: glint 7s cubic-bezier(.45,0,.55,1) infinite; }
+  @keyframes glint { 0% { stroke-dashoffset: 140; opacity: 0; } 8% { opacity: .9; }
+                     55% { stroke-dashoffset: -840; opacity: .9; } 60%, 100% { stroke-dashoffset: -840; opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .r, .l, .i, .g { animation: none; } .g { display: none; } }
 """
 
 
@@ -73,6 +77,8 @@ def build(theme_name: str) -> str:
             rule_y = y - ROW_GAP / 2
             parts.append(f'<line class="r" style="animation-delay:{delay:.2f}s" x1="0" y1="{rule_y}" '
                          f'x2="{WIDTH}" y2="{rule_y}" stroke="{t["rule"]}"/>')
+            parts.append(f'<line class="g" style="animation-delay:{1.4 + row * 0.9:.2f}s" x1="0" y1="{rule_y}" '
+                         f'x2="{WIDTH}" y2="{rule_y}" stroke="{t["glint"]}"/>')
         parts.append(f'<text class="l" style="animation-delay:{delay:.2f}s" x="0" y="{y + ICON / 2 + 4}" '
                      f'fill="{t["label"]}" font-family="{FONT}" font-size="11.5" font-weight="600" '
                      f'letter-spacing="1.8">{label}</text>')
