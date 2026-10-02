@@ -1,8 +1,12 @@
 <div align="center">
 
-### Nikita Velbovets
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
+  <img src="./assets/hero-light.svg" alt="Nikita Velbovets — backend and API security, mostly Go" width="840" />
+</picture>
 
-<sub>Kyiv-Mohyla Academy · Kyiv</sub>
+<br /><br />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg" />

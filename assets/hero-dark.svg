@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="260" viewBox="0 0 840 260" role="img" aria-label="Nikita Velbovets — backend and API security, Go">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#131a2a"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#1f6feb" stop-opacity=".35"/><stop offset="1" stop-color="#1f6feb" stop-opacity="0"/></radialGradient>
+<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="48" y1="0" x2="420" y2="0"><stop offset="0" stop-color="#58a6ff"/><stop offset=".55" stop-color="#a371f7"/><stop offset="1" stop-color="#3fb950"/></linearGradient>
+<linearGradient id="sheen" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="160" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="shield" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58a6ff"/><stop offset="1" stop-color="#a371f7"/></linearGradient>
+<pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#30363d"/></pattern>
+<clipPath id="card"><rect width="840" height="260" rx="16"/></clipPath>
+<clipPath id="nameclip"><text x="48" y="118" class="name">Nikita Velbovets</text></clipPath>
+<clipPath id="typeclip"><rect class="typed" x="48" y="190" width="146" height="24"/></clipPath>
+<style>
+  .name { font: 700 44px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; letter-spacing: -1px; }
+  .sub  { font: 500 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e; }
+  .mono { font: 500 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #8b949e; }
+  .tag  { font: 600 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 1.4px; fill: #8b949e; }
+  .shine { animation: shine 6s ease-in-out infinite alternate; }
+  @keyframes shine { from { transform: translateX(-160px); } to { transform: translateX(160px); } }
+  .glow { animation: drift 9s ease-in-out infinite alternate; transform-origin: center; }
+  @keyframes drift { from { transform: translate(-60px, -10px) scale(1); }
+                      to   { transform: translate(80px, 20px) scale(1.25); } }
+  .typed { animation: type 2.6s steps(18, end) 0.4s both; }
+  @keyframes type { from { width: 0; } to { width: 146px; } }
+  .caret { animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .gate { animation: pulse 2.4s ease-in-out infinite; transform-origin: 640px 147px; }
+  @keyframes pulse { 0%,100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
+  .ok, .bad { animation-duration: 8s; animation-iteration-count: infinite;
+              animation-timing-function: linear; animation-fill-mode: backwards; }
+  .ok  { animation-name: pass; }
+  .bad { animation-name: block; }
+  @keyframes pass  { 0% { transform: translateX(470px); opacity: 0; }
+                      6% { opacity: 1; }
+                      40% { transform: translateX(816px); opacity: 0; }
+                      100% { transform: translateX(816px); opacity: 0; } }
+  @keyframes block { 0% { transform: translateX(470px); opacity: 0; }
+                      6% { opacity: 1; }
+                      22% { transform: translateX(622px); opacity: 1; r: 4px; }
+                      30% { transform: translateX(622px); opacity: 0; r: 11px; }
+                      100% { transform: translateX(622px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+  }</style>
+</defs>
+<g clip-path="url(#card)">
+<rect width="840" height="260" fill="url(#bg)"/>
+<rect width="840" height="260" fill="url(#dots)" opacity=".6"/>
+<circle class="glow" cx="640" cy="140" r="220" fill="url(#glow)"/>
+</g>
+<rect x=".5" y=".5" width="839" height="259" rx="16" fill="none" stroke="#30363d"/>
+<text x="48" y="64" class="tag">KYIV · KYIV-MOHYLA ACADEMY</text>
+<text x="48" y="118" class="name" fill="url(#ink)">Nikita Velbovets</text>
+<g clip-path="url(#nameclip)"><rect class="shine" x="48" y="70" width="160" height="60" fill="url(#sheen)"/></g>
+<text x="48" y="150" class="sub">Backend &amp; API security · mostly Go</text>
+<g clip-path="url(#typeclip)"><text x="48" y="207" class="mono"><tspan fill="#3fb950">$</tspan> go run ./gateway</text></g>
+<rect class="caret" x="196" y="195" width="8" height="15" fill="#8b949e"/>
+<line x1="470" y1="96" x2="816" y2="96" stroke="#3d444d" stroke-dasharray="2 6" stroke-linecap="round"/>
+<line x1="470" y1="130" x2="816" y2="130" stroke="#3d444d" stroke-dasharray="2 6" stroke-linecap="round"/>
+<line x1="470" y1="164" x2="816" y2="164" stroke="#3d444d" stroke-dasharray="2 6" stroke-linecap="round"/>
+<line x1="470" y1="198" x2="816" y2="198" stroke="#3d444d" stroke-dasharray="2 6" stroke-linecap="round"/>
+<circle class="ok" cx="0" cy="96" r="4" fill="#3fb950" transform="translate(490 0)" style="animation-delay:0.0s"/>
+<circle class="bad" cx="0" cy="130" r="4" fill="#f85149" transform="translate(622 0)" style="animation-delay:0.7s"/>
+<circle class="ok" cx="0" cy="164" r="4" fill="#3fb950" transform="translate(616 0)" style="animation-delay:1.3s"/>
+<circle class="ok" cx="0" cy="198" r="4" fill="#3fb950" transform="translate(694 0)" style="animation-delay:2.1s"/>
+<circle class="bad" cx="0" cy="96" r="4" fill="#f85149" transform="translate(622 0)" style="animation-delay:2.6s"/>
+<circle class="ok" cx="0" cy="164" r="4" fill="#3fb950" transform="translate(500 0)" style="animation-delay:3.4s"/>
+<circle class="ok" cx="0" cy="130" r="4" fill="#3fb950" transform="translate(558 0)" style="animation-delay:4.0s"/>
+<circle class="bad" cx="0" cy="198" r="4" fill="#f85149" transform="translate(622 0)" style="animation-delay:4.7s"/>
+<circle class="ok" cx="0" cy="96" r="4" fill="#3fb950" transform="translate(684 0)" style="animation-delay:5.3s"/>
+<circle class="bad" cx="0" cy="198" r="4" fill="#f85149" transform="translate(622 0)" style="animation-delay:6.0s"/>
+<circle class="ok" cx="0" cy="130" r="4" fill="#3fb950" transform="translate(490 0)" style="animation-delay:6.6s"/>
+<circle class="ok" cx="0" cy="198" r="4" fill="#3fb950" transform="translate(548 0)" style="animation-delay:7.2s"/>
+<line x1="640" y1="76" x2="640" y2="218" stroke="#58a6ff" stroke-opacity=".35" stroke-width="2"/>
+<g class="gate"><path d="M640 118 l22 8 v18 c0 16 -10 26 -22 32 c-12 -6 -22 -16 -22 -32 v-18 z" fill="#0d1117" stroke="url(#shield)" stroke-width="2.5" stroke-linejoin="round"/><path d="M632 146 l6 6 l11 -12" fill="none" stroke="#3fb950" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="640" y="238" class="tag" text-anchor="middle">EVERY REQUEST, INSPECTED</text>
+</svg>
