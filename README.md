@@ -1,39 +1,21 @@
 <div align="center">
 
-## Nikita Velbovets
+### Nikita Velbovets
 
-Student at the National University of Kyiv-Mohyla Academy · Kyiv
-
-</div>
-
-I'm a student who got hooked on backend and security. Most of my time goes into Go:
-proxies, databases, and figuring out how APIs break and how to notice when they do.
-I'm still learning, and I like code that's simple, tested and honest about what it does.
+<sub>Kyiv-Mohyla Academy · Kyiv</sub>
 
 <br />
 
-<div align="center">
+A student who got hooked on backend and security.<br />
+Most of my time goes into Go — proxies, databases, and how APIs break.<br />
+Still learning; I like code that is simple, tested and honest about what it does.
 
-<sub><b>LANGUAGES</b></sub>
-<br /><br />
-<img src="https://skillicons.dev/icons?i=go,python,c,bash" alt="Go, Python, C, Bash" />
+<br />
 
-<br /><br />
-
-<sub><b>DATA</b></sub>
-<br /><br />
-<img src="https://skillicons.dev/icons?i=postgres,redis" alt="PostgreSQL, Redis" />
-
-<br /><br />
-
-<sub><b>INFRASTRUCTURE</b></sub>
-<br /><br />
-<img src="https://skillicons.dev/icons?i=docker,kubernetes,nginx,linux,githubactions,git" alt="Docker, Kubernetes, nginx, Linux, GitHub Actions, Git" />
-
-<br /><br />
-
-<sub><b>WEB</b></sub>
-<br /><br />
-<img src="https://skillicons.dev/icons?i=django,electron,html,css,js" alt="Django, Electron, HTML, CSS, JavaScript" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/stack-light.svg" />
+  <img src="./assets/stack-light.svg" alt="Stack: Go, Python, C, Bash, PostgreSQL, Redis, Docker, Kubernetes, nginx, Linux, GitHub Actions, Git, Django, Electron, HTML, CSS, JavaScript" width="516" />
+</picture>
 
 </div>
