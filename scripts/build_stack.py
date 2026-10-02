@@ -57,11 +57,7 @@ def build(theme_name: str) -> str:
         f'viewBox="0 0 {width} {height}" fill="none" role="img" aria-label="Tech stack">',
         f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="14" '
         f'fill="{t["panel"]}" stroke="{t["border"]}"/>',
-        "<style>.i { animation: rise .55s cubic-bezier(.2,.8,.2,1) backwards; }"
-        "@keyframes rise { from { opacity: 0; transform: translateY(8px); } }"
-        "@media (prefers-reduced-motion: reduce) { .i { animation: none; } }</style>",
     ]
-    order = 0
     for row, (label, icons) in enumerate(GROUPS):
         y = PAD_Y + row * (ICON + ROW_GAP)
         if row:
@@ -75,9 +71,7 @@ def build(theme_name: str) -> str:
             x = PAD_X + LABEL_W + col * (ICON + GAP)
             icon = fetch_icon(name, t["icons"])
             icon = icon.replace('width="256" height="256"', f'width="{ICON}" height="{ICON}"', 1)
-            order += 1
-            parts.append(f'<g transform="translate({x} {y})"><g class="i" style="animation-delay:{order * 0.06:.2f}s">'
-                         f'<title>{NAMES[name]}</title>{icon}</g></g>')
+            parts.append(f'<g transform="translate({x} {y})"><title>{NAMES[name]}</title>{icon}</g>')
     parts.append("</svg>")
     return "\n".join(parts)
 
